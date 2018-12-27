@@ -31,3 +31,7 @@
 例如：我们在Git.md中添加名为`addSSHkey.png`的图片，那么我们的图片存放的路径为`./images/addSSHkey.png`,故引用方式为:
 
 `![Add SSH Key](./images/addSSHkey.png)`
+
+### 使用Typora编辑markdown文件
+
+本人使用[Typora](https://www.typora.io/)作为Markdown文件的编辑器，有些功能在GitHub上展示不了，比如自动生成目录语法：[toc] + enter，GitHub上展示为：[TOC]。推荐使用该编辑器，简单，美观，大气，你值得拥有。
