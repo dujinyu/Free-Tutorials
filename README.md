@@ -15,10 +15,10 @@
 
 ## 教程
 
-+ [CSS](./CSS.md)
-+ [Git](./Git.md)
-+ [HTML](./HTML.md)
-+ [JavaScript](./JavaScript)
-+ [Python](./Python.md)
-+ [Vue](./Vue.md)
++ [CSS](./CSS/CSS.md)
++ [Git](./Git/Git.md)
++ [HTML](./HTML/HTML.md)
++ [JavaScript](./JavaScript/JavaScript.md)
++ [Python](./Python/Python.md)
++ [Vue](./Vue/Vue.md)
 
