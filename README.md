@@ -22,3 +22,12 @@
 + [Python](./Python/Python.md)
 + [Vue](./Vue/Vue.md)
 
+## 注意事项
+
+### .md文件中引用的图片存放位置
+
+.md文件中添加的图片，统一存放一该教程文件夹下，一个名为`images`的文件下。
+
+例如：我们在Git.md中添加名为`addSSHkey.png`的图片，那么我们的图片存放的路径为`./images/addSSHkey.png`,故引用方式为:
+
+`![Add SSH Key](./images/addSSHkey.png)`
