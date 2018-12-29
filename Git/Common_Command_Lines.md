@@ -94,11 +94,11 @@
 
 用法详解：如下图，文件`2.txt`已经被加入到暂存区，我们可以执行`git reset HEAD 2.txt `来取消暂存`unstage`，该文件重新回到工作区。
 
-![git reset HEAD](./images/gitResetHEAD.png)
+![git reset HEAD](./images/gitResetHead.png)
 
 取消暂存后的效果图：
 
-![git reset HEAD 2.txt](./images/gitResetHEAD-1.png)
+![git reset HEAD 2.txt](./images/gitResetHead-1.png)
 
 **版本回退**：在上述看到提交日志。我们可以回到过去，回到任何的一次`commit`的版本。
 
