@@ -583,39 +583,43 @@ FastClick.attach(document.body)
 
 **解决方案：**
 
-1. **针对打包后空白页面的问题**
+## 1. 针对打包后空白页面的问题
 
-   在打包前，找到`config/index.js`文件，更改其中`build`下面的`assetPublicPath`。更改后代码如下：
+在打包前，找到`config/index.js`文件，更改其中`build`下面的`assetPublicPath`。更改后代码如下：
 
-   ```js
-   build: {
-       // Template for index.html
-       index: path.resolve(__dirname, '../dist/index.html'),
-   
-       // Paths
-       assetsRoot: path.resolve(__dirname, '../dist'),
-       assetsSubDirectory: 'static',
-       assetsPublicPath: './',    // 更改了这里，比原本多一个点
-   	// 省略以下代码。。。。。。
-   }
-   ```
+```js
+build: {
+    // Template for index.html
+    index: path.resolve(__dirname, '../dist/index.html'),
 
-2. **针对图片找不到的问题**
+    // Paths
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: './',    // 更改了这里，比原本多一个点
+	// 省略以下代码。。。。。。
+}
+```
 
-   打包后的静态文件统统放在`static`的文件夹中，与其搞来搞去相对路径，`../../`的搞来搞去，我们直接将图片等放在`src`同级的`static/images`下。在引入图片时，我们先给`static`设置别名alias，然后引用`"static/images/xx.jpg"`，这样打包后路径一定是对的。
 
-   **别名设置：**在`build/webpack.base.conf.js`中，修改别名alias，代码如下：
 
-   ```js
-   resolve: {
-       extensions: ['.js', '.vue', '.json'],
-       alias: {
-         '@': resolve('src'),
-         'static': resolve("static")  
-         // 给static添加了别名，写路径是直接static开头，就能找到它了。其他常用的路径也可以自行配置。
-       }
-     },
-   ```
+## 2. 针对图片找不到的问题
+
+打包后的静态文件统统放在`static`的文件夹中，与其搞来搞去相对路径，`../../`的搞来搞去，我们直接将图片等放在`src`同级的`static/images`下。在引入图片时，我们先给`static`设置别名alias，然后引用`"static/images/xx.jpg"`，这样打包后路径一定是对的。别名设置参见：[别名设置](#别名设置)
+
+# 别名设置
+
+在`build/webpack.base.conf.js`中，修改别名alias，代码如下：
+
+```js
+resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      '@': resolve('src'),
+      'static': resolve("static")  
+      // 给static添加了别名，写路径是直接static开头，就能找到它了。其他常用的路径也可以自行配置。
+    }
+  },
+```
 
 
 
