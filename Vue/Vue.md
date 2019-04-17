@@ -623,3 +623,47 @@ resolve: {
 
 
 
+# vue组件注意事项
+
+## prop验证
+
+注意类型验证和默认参数设置时，`Object`和`Function`相较于其他类型的特例。
+
+```js
+Vue.component('my-component', {
+  props: {
+    // 基础的类型检查 (`null` 和 `undefined` 会通过任何类型验证)
+    propA: Number,
+    // 多个可能的类型
+    propB: [String, Number],
+    // 必填的字符串
+    propC: {
+      type: String,
+      required: true
+    },
+    // 带有默认值的数字
+    propD: {
+      type: Number,
+      default: 100
+    },
+    // 带有默认值的对象
+    propE: {
+      type: Object,
+      // 对象或数组默认值必须从一个工厂函数获取
+      default: function () {
+        return { message: 'hello' }
+      }
+    },
+    // 自定义验证函数
+    propF: {
+      // 这里的validator是自定义的一个函数的名字，在没有传入新的函数时，默认该函数为validator，也可以是其他的名字和功能的函数。
+      validator: function (value) {
+        // 这个值必须匹配下列字符串中的一个
+        return ['success', 'warning', 'danger'].indexOf(value) !== -1
+      }
+    }
+  }
+})
+```
+
+> 注意那些 prop 会在一个组件实例创建**之前**进行验证，所以实例的属性 (如 `data`、`computed` 等) 在 `default` 或 `validator` 函数中是不可用的。也就是说不能`this.xxx`获取`data`中的属性。
