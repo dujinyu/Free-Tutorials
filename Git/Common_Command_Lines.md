@@ -182,9 +182,9 @@
 
 解决方法：
 
- 	1. 手动解决冲突部分，就是手动删除`<<<<<<< HEAD`，`=======`，`>>>>>>> dev`。
- 	2. 调整冲突部分为你想要的顺序，上述被删除部分是提示你冲突在哪里。
- 	3. 执行`git add 冲突文件`，`git commit -m "descriptive message"`。冲突到此已被解决。
+1. 手动解决冲突部分，就是手动删除`<<<<<<< HEAD`，`=======`，`>>>>>>> dev`。
+2. 调整冲突部分为你想要的顺序，上述被删除部分是提示你冲突在哪里。
+3. 执行`git add 冲突文件`，`git commit -m "descriptive message"`。冲突到此已被解决。
 
 **额外**：`git ls-files -s`用来显示冲突的文件有哪些，看第二列数字。
 
@@ -196,4 +196,16 @@
 **树冲突**，即两个人因改动同一文件的文件名而产生的冲突，以及更过**merge**问题，请参看链接：
 
 [https://blog.csdn.net/qq_27905183/article/details/78575247](https://blog.csdn.net/qq_27905183/article/details/78575247)
+
+### git fetch
+
+含义：从远程仓库拉取分支
+
+用法：git fetch [bookmark]
+
+用法详解：
+
+​	**法一**、`git fetch origin master`，从远程仓库（别名叫`origin`）的`master`分支下载代码到本地的`master`分支。
+
+​	**法二**、`git fetch origin master:temp`，从远程仓库（别名叫`origin`）的`master`分支下载代码到本地新建的`temp`分支。
 
